@@ -7,11 +7,16 @@ namespace PhotosensitivityMod
 	public static class CloudLightningPatches
 	{
 		[HarmonyPostfix]
-		[HarmonyPatch(typeof(CloudLightningGenerator), nameof(CloudLightningGenerator.Awake))]
+		[HarmonyPatch(typeof(EyeLightningGenerator), nameof(EyeLightningGenerator.Awake))]
 		[HarmonyPatch(typeof(CloudLightning), nameof(CloudLightning.Awake))]
-		public static void CloudLightning_Awake(Component __instance)
+		public static void EyeLightningGenerator_Awake(EyeLightningGenerator __instance)
 		{
-			Delay.FireOnNextUpdate(() => GameObject.Destroy(__instance.gameObject));
+			Delay.FireOnNextUpdate(() => { 
+				for (int i = 0; i < __instance._lightRandomAnimSettings.Length; i++)
+                {
+					__instance._lightRandomAnimSettings[i].radiusScale = new AnimationCurve(new Keyframe(0, 1), new Keyframe(1, 1));
+				}
+			});
 		}
 
 		[HarmonyPostfix]
