@@ -1,29 +1,52 @@
-﻿using OWML.Common;
+﻿using HarmonyLib;
+using OWML.Common;
 using OWML.ModHelper;
+using System.Reflection;
 
 namespace PhotosensitivityMod
 {
 	public class PhotosensitivityMod : ModBehaviour
 	{
+		public static PhotosensitivityMod Instance { get; private set; }
+
 		private void Awake()
 		{
-			// You won't be able to access OWML's mod helper in Awake.
-			// So you probably don't want to do anything here.
-			// Use Start() instead.
+			Instance = this;
 		}
 
 		private void Start()
 		{
-			// Starting here, you'll have access to OWML's mod helper.
-			ModHelper.Console.WriteLine($"My mod {nameof(PhotosensitivityMod)} is loaded!", MessageType.Success);
+			Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
 
+			Write($"{nameof(PhotosensitivityMod)} is loaded!");
 
-			// Example of accessing game code.
 			LoadManager.OnCompleteSceneLoad += (scene, loadScene) =>
 			{
-				if (loadScene != OWScene.SolarSystem) return;
-				ModHelper.Console.WriteLine("Loaded into solar system!", MessageType.Success);
+				switch (loadScene)
+				{
+					case OWScene.EyeOfTheUniverse:
+						HandleEyeScene();
+						break;
+					case OWScene.SolarSystem:
+						HandleSolarSystem();
+						break;
+				}
 			};
+		}
+
+		public void HandleEyeScene()
+		{
+
+		}
+
+		public void HandleSolarSystem()
+		{
+
+		}
+
+		public static void Write(string msg)
+		{
+			Instance.ModHelper.Console.WriteLine(msg, MessageType.Info);
 		}
 	}
 }
