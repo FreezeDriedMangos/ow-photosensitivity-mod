@@ -8,12 +8,8 @@ namespace PhotosensitivityMod
 	{
 		[HarmonyPostfix]
 		[HarmonyPatch(typeof(CloudLightningGenerator), nameof(CloudLightningGenerator.Awake))]
-		//[HarmonyPatch(typeof(CloudLightning), nameof(CloudLightning.Awake))]
 		public static void EyeLightningGenerator_Awake(EyeLightningGenerator __instance)
 		{
-			var isCorrectSubclass = __instance is EyeLightningGenerator;
-			if (!isCorrectSubclass) return;
-
 			Delay.FireOnNextUpdate(() => { 
 				for (int i = 0; i < __instance._lightRandomAnimSettings.Length; i++)
                 {
