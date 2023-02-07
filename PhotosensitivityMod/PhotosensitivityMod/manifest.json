@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
+  "filename": "PhotosensitivityMod.dll",
+  "author": "xen",
+  "name": "PhotosensitivityMod",
+  "uniqueName": "xen.PhotosensitivityMod",
+  "version": "0.1.0",
+  "owmlVersion": "2.8.0",
+  "dependencies": []
+}
