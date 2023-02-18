@@ -22,7 +22,7 @@ namespace PhotosensitivityMod
 			for (int i = 0; i < __instance._lightRandomAnimSettings.Length; i++)
             {
 				// this prevents the sudden appearance of full brightness lightning
-				__instance._lightRandomAnimSettings[i].intensityScale = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
+				__instance._lightRandomAnimSettings[i].intensityScale = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 0.5f), new Keyframe(1, 0));
 				
 				// this adjusts the flicker harshness
 				var oldKeys = __instance._lightRandomAnimSettings[i].radiusScale.keys;
