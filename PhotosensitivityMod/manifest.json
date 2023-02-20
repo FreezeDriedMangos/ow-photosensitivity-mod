@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
   "filename": "PhotosensitivityMod.dll",
-  "author": "xen, clay, Trifid",
+  "author": "clay, xen, Trifid",
   "name": "PhotosensitivityMod",
   "uniqueName": "clay.PhotosensitivityMod",
   "version": "1.0.0",
