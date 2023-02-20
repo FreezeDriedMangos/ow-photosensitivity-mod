@@ -1,5 +1,0 @@
-﻿<Project>
-  <PropertyGroup>
-    <OutputPath>$(AppData)\OuterWildsModManager\OWML\Mods\xen.PhotosensitivityMod</OutputPath>
-  </PropertyGroup>
-</Project>
